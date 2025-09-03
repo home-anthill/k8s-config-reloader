@@ -1,0 +1,7 @@
+build
+logs
+tmp
+coverage
+.dockerignore
+Dockerfile
+config-folder

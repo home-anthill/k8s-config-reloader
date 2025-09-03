@@ -1,0 +1,9 @@
+.idea/
+.DS_Store
+.vscode
+
+.env
+tmp
+logs
+coverage
+config-folder/
