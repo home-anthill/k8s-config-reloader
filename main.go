@@ -57,7 +57,7 @@ func main() {
 					return
 				}
 				log.Println("Event:", event)
-				if event.Has(fsnotify.Write) {
+				if event.Has(fsnotify.Write) || event.Has(fsnotify.Remove) {
 					// if event.Op&fsnotify.Chmod != fsnotify.Chmod {
 					log.Println("Modified file:", event.Name)
 					err1 := reloadProcess(processNameEnv, reloadSignal)
@@ -112,8 +112,12 @@ func findProcess(processName string) (*process.Process, error) {
 
 	for _, p := range processes {
 		n, _ := p.Name()
+		log.Println("________________")
+		log.Println("Process list")
+		log.Printf("Process %s (pid: %d)\n", n, p.Pid)
+		log.Println("________________")
 		if n == processName {
-			log.Printf("Process %s (pid: %d) found\n", n, p.Pid)
+			log.Printf("Requested process found with name = %s and pid = %d)\n", n, p.Pid)
 			return p, nil
 		}
 	}
