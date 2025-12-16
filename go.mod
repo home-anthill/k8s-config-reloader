@@ -4,8 +4,8 @@ go 1.25.0
 
 require (
 	github.com/fsnotify/fsnotify v1.9.0
-	github.com/shirou/gopsutil/v4 v4.25.10
-	golang.org/x/sys v0.38.0
+	github.com/shirou/gopsutil/v4 v4.25.11
+	golang.org/x/sys v0.39.0
 )
 
 require (
