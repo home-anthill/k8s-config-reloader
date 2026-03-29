@@ -22,10 +22,19 @@ run: vet lint
 	air
 .PHONY: run
 
+test: vet lint
+	mkdir -p ./coverage
+	ENV=testing go test -v -race -count=1 -coverpkg ./... -coverprofile ./coverage/profile.cov ./...
+	# go tool cover -html ./coverage/profile.cov
+	go tool cover -html ./coverage/profile.cov -o ./coverage/cover.html
+	go-cover-treemap -coverprofile ./coverage/profile.cov > ./coverage/out.svg
+.PHONY: test
+
 deps:
 	go install golang.org/x/tools/go/analysis/passes/shadow/cmd/shadow@latest
 	go install honnef.co/go/tools/cmd/staticcheck@latest
 	go install github.com/air-verse/air@latest
 	go get -u
 	go mod tidy
+	go install github.com/nikolaydubina/go-cover-treemap@latest
 .PHONY: deps

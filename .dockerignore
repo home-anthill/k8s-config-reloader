@@ -5,3 +5,6 @@ coverage
 .dockerignore
 Dockerfile
 config-folder
+.git
+.env
+CLAUDE.md
