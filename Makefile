@@ -12,6 +12,11 @@ vet:
 	shadow ./...
 .PHONY:vet
 
+check:
+	# find vulnerabilities
+	govulncheck ./...
+.PHONY:check
+
 build: vet lint
 	go build -o ./build/k8s-config-reloader .
 .PHONY: build
@@ -34,6 +39,7 @@ deps:
 	go install golang.org/x/tools/go/analysis/passes/shadow/cmd/shadow@latest
 	go install honnef.co/go/tools/cmd/staticcheck@latest
 	go install github.com/air-verse/air@latest
+	go install golang.org/x/vuln/cmd/govulncheck@latest
 	go get -u
 	go mod tidy
 	go install github.com/nikolaydubina/go-cover-treemap@latest
