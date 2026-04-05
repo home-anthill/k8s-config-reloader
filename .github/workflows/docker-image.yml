@@ -26,7 +26,7 @@ env:
   IMAGE_NAME: ks89/${{ github.event.repository.name }}
 
 jobs:
-  test:
+  build-and-check:
     name: Test
     runs-on: ubuntu-latest
     timeout-minutes: 15
@@ -40,8 +40,6 @@ jobs:
           go-version: 1.26
       - name: Install Make
         run: sudo apt-get install -y make
-      - name: Run security audit
-        run: make check
       - name: Run tests
         run: |
           echo "Installing dependencies"
@@ -50,6 +48,8 @@ jobs:
           make vet
           echo "Running lint"
           make lint
+          echo "Run security audit"
+          make check
           echo "Running build"
           make build
 
