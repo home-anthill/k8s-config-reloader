@@ -6,4 +6,5 @@
 tmp
 logs
 coverage
+build
 config-folder/
