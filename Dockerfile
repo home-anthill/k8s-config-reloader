@@ -1,5 +1,5 @@
 # syntax=docker/dockerfile:1
-FROM golang:1.26.3-alpine AS builder
+FROM golang:1.26.4-alpine AS builder
 RUN apk update && apk add --no-cache \
     make gcc musl-dev
 
@@ -15,7 +15,7 @@ RUN make deps
 
 RUN make build
 
-FROM dhi.io/golang:1-alpine3.23
+FROM dhi.io/golang:1-alpine3.24
 WORKDIR /
 COPY --from=builder /app/build/k8s-config-reloader /k8s-config-reloader
 
