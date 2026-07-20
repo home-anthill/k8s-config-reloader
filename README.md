@@ -21,6 +21,7 @@ GitHub releases [HERE](https://github.com/home-anthill/k8s-config-reloader/relea
 
 Versions:
 
+- 20/07/2026 - 1.1.2
 - 28/05/2026 - 1.1.1
 - 29/03/2026 - 1.1.0
 - 15/03/2026 - 1.0.4
