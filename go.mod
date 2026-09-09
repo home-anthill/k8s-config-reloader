@@ -1,6 +1,6 @@
 module github.com/home-anthill/k8s-config-reloader
 
-go 1.26.5
+go 1.27
 
 require (
 	github.com/fsnotify/fsnotify v1.10.1
